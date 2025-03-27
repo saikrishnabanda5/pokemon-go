@@ -7,7 +7,7 @@ export async function GET(request: Request) {
   if (!name)
     return NextResponse.json({ error: "Type is required" }, { status: 400 });
 
-  const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
+  const res = await fetch(`${process.env.BASE_URL}/pokemon/${name}`);
   const data = await res.json();
 
   return NextResponse.json(
